@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  symbol: MyString
+  side: MyString
+  lot_size: 9.99
+  net_profit: 9.99
+
+two:
+  symbol: MyString
+  side: MyString
+  lot_size: 9.99
+  net_profit: 9.99
