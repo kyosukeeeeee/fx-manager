@@ -4,16 +4,16 @@ export type LoginPayload = {
 }
 
 export type LoginResponse = {
-  token: string, //何に使うか不明
+  token: string,
   user: {
     id: string
     name: string
-    email: string //何に使うか不明
+    email: string
   }
 }
 
 export async function login(payload: LoginPayload): Promise<LoginResponse> {
-  const response = await fetch("/api/login", {
+  const response = await fetch("/api/v1/login", {
     method: "POST",
     headers: {
       "Content-Type": "application/json"
