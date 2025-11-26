@@ -1,4 +1,5 @@
 import React from "react"
+import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form"
 import { useLogin } from "../hooks/useLogin"
 import type { LoginResponse } from "../../../api/auth"
@@ -24,7 +25,15 @@ export const LoginForm: React.FC<LoginFormProps> = ({ onLoginSuccess }) => {
     },
   })
 
-  const { login, loading, error } = useLogin({ onSuccess: onLoginSuccess })
+  const navigate = useNavigate();
+
+  const handleLoginSuccess = (response: LoginResponse) => {
+    localStorage.setItem("access_token", response.token)
+
+    navigate("/")
+  }
+
+  const { login, loading, error } = useLogin({ onSuccess: handleLoginSuccess })
 
   const onSubmit = handleSubmit(async (values) => {
     await login(values)
