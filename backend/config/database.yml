@@ -9,16 +9,16 @@ default: &default
 
 development:
   <<: *default
-  database: <%= ENV.fetch("DB_NAME") { "fx_mmanager_api_development" } %>
+  database: <%= ENV.fetch("DB_NAME") { "fx_manager_development" } %>
 
 test:
   <<: *default
-  database: <%= ENV.fetch("DB_NAME_TEST") { "fx_mmanager_api_test" } %>
+  database: <%= ENV.fetch("DB_NAME_TEST") { "fx_manager_test" } %>
 
 production:
   <<: *default
   # 本番用はあとで環境変数で上書きする想定
-  database: <%= ENV.fetch("DB_NAME_PRODUCTION") { "fx_mmanager_api_production" } %>
+  database: <%= ENV.fetch("DB_NAME_PRODUCTION") { "fx_manager_production" } %>
   host:     <%= ENV.fetch("DB_HOST_PRODUCTION") { ENV.fetch("DB_HOST") { "db" } } %>
   username: <%= ENV.fetch("DB_USER_PRODUCTION") { ENV.fetch("DB_USER") { "postgres" } } %>
   password: <%= ENV.fetch("DB_PASSWORD_PRODUCTION") { ENV.fetch("DB_PASSWORD") { "password" } } %>
