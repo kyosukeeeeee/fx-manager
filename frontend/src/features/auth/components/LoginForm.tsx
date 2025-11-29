@@ -30,7 +30,7 @@ export const LoginForm: React.FC<LoginFormProps> = ({ onLoginSuccess }) => {
   const handleLoginSuccess = (response: LoginResponse) => {
     localStorage.setItem("access_token", response.token)
 
-    navigate("/")
+    navigate("/dashboard")
   }
 
   const { login, loading, error } = useLogin({ onSuccess: handleLoginSuccess })

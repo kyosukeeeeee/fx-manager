@@ -9,7 +9,7 @@ export const SignupPage: React.FC = () => {
   const handleSignupSuccess = (response: SignupResponse) => {
     localStorage.setItem("access_token", response.token)
 
-    navigate("/")
+    navigate("/dashboard")
   }
 
   return (
